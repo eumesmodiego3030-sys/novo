@@ -37,7 +37,7 @@ const VideoBackground = () => {
         preload="auto"
         className="w-full h-full object-cover"
       >
-        <source src="https://drive.google.com/uc?export=download&id=17Hl3_PmcQU6Ysb8DgtTXDCq78t8COV79" type="video/mp4" />
+        <source src="/clinic-tour.mp4" type="video/mp4" />
       </video>
 
       {/* Warm overlay for readability */}
