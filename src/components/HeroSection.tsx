@@ -16,8 +16,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
         >
-          <div className="flex justify-center mb-6">
-            <Suspense fallback={<div className="w-40 h-40" />}>
+          <div className="flex justify-center mb-6 md:block hidden">
+            <Suspense fallback={<div className="w-80 h-80" />}>
               <Logo3D size="xl" className="!w-80 !h-80" />
             </Suspense>
           </div>
