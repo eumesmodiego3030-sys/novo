@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { lazy, Suspense } from "react";
+
+const Logo3D = lazy(() => import("@/components/Logo3D"));
 
 const HeroSection = () => {
   const scrollTo = (id: string) => {
@@ -13,6 +16,12 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
         >
+          <div className="flex justify-center mb-6">
+            <Suspense fallback={<div className="w-40 h-40" />}>
+              <Logo3D size="xl" />
+            </Suspense>
+          </div>
+
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-body">
             Birmingham, United Kingdom
           </p>

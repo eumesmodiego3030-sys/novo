@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const Logo3D = lazy(() => import("@/components/Logo3D"));
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -39,13 +41,18 @@ const Navigation = () => {
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={() => scrollTo("#home")} className="flex flex-col">
-          <span className="font-heading text-2xl md:text-3xl font-light tracking-wide text-foreground">
-            Tatiana Torres
-          </span>
-          <span className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground font-body">
-            Brazilian Aesthetic & Beauty
-          </span>
+        <button onClick={() => scrollTo("#home")} className="flex items-center gap-2">
+          <Suspense fallback={<div className="w-12 h-12" />}>
+            <Logo3D size="sm" />
+          </Suspense>
+          <div className="flex flex-col">
+            <span className="font-heading text-2xl md:text-3xl font-light tracking-wide text-foreground">
+              Tatiana Torres
+            </span>
+            <span className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground font-body">
+              Brazilian Aesthetic & Beauty
+            </span>
+          </div>
         </button>
 
         {/* Desktop links */}
