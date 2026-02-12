@@ -1,4 +1,23 @@
 import { Link } from "react-router-dom";
+import { Instagram, Facebook, Phone } from "lucide-react";
+
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "https://instagram.com/tatianatorresbeauty",
+    icon: Instagram,
+  },
+  {
+    label: "Facebook",
+    href: "https://facebook.com/tatianatorresbeauty",
+    icon: Facebook,
+  },
+  {
+    label: "Phone",
+    href: "tel:+447492934010",
+    icon: Phone,
+  },
+];
 
 const Footer = () => {
   const scrollTo = (id: string) => {
@@ -23,6 +42,22 @@ const Footer = () => {
               382 Bearwood Road, B66 4ET — Birmingham, UK<br />
               📞 07492 934010
             </p>
+
+            {/* Social Icons */}
+            <div className="flex gap-3 mt-5">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                >
+                  <s.icon className="w-4 h-4" strokeWidth={1.5} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick links */}
@@ -51,26 +86,17 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/privacy"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
-                >
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/cookies"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
-                >
+                <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/terms"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
-                >
+                <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
                   Terms & Conditions
                 </Link>
               </li>

@@ -1,5 +1,5 @@
 import ScrollReveal from "./ScrollReveal";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, Instagram, Facebook } from "lucide-react";
 
 const ContactSection = () =>
 <section id="contact" className="section-luxury">
@@ -62,22 +62,33 @@ const ContactSection = () =>
                 <p className="text-sm text-muted-foreground font-body mb-2">
                   📞 07492 934010
                 </p>
-                <div className="flex gap-4 mt-2">
+                <div className="flex gap-3 mt-3">
                   <a
-                  href="https://wa.me/447492934010"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-primary hover:text-rose-deep transition-colors font-body font-semibold">
-
-                    WhatsApp
+                    href="https://wa.me/447492934010"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                  >
+                    <Phone className="w-4 h-4" strokeWidth={1.5} />
                   </a>
                   <a
-                  href="https://instagram.com/tatianatorresbeauty"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-primary hover:text-rose-deep transition-colors font-body font-semibold">
-
-                    @tatianatorresbeauty
+                    href="https://instagram.com/tatianatorresbeauty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                  >
+                    <Instagram className="w-4 h-4" strokeWidth={1.5} />
+                  </a>
+                  <a
+                    href="https://facebook.com/tatianatorresbeauty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                  >
+                    <Facebook className="w-4 h-4" strokeWidth={1.5} />
                   </a>
                 </div>
               </div>
