@@ -14,15 +14,15 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        >
+          transition={{ duration: 1, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}>
+
           <div className="hidden md:flex justify-center mb-6">
             <Suspense fallback={<div className="w-80 h-80" />}>
               <Logo3D size="xl" className="!w-80 !h-80" />
             </Suspense>
           </div>
 
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-body">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-body font-semibold">
             Birmingham, United Kingdom
           </p>
 
@@ -33,23 +33,23 @@ const HeroSection = () => {
 
           <div className="luxury-divider" />
 
-          <p className="section-subheading mt-6 mb-10">
+          <p className="section-subheading mt-6 mb-10 font-medium">
             Advanced Brazilian aesthetics with exceptional results, personalised care and total client satisfaction.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => scrollTo("#booking")}
-              className="btn-primary-luxury"
-            >
+              className="btn-primary-luxury">
+
               Book Now
             </button>
             <a
               href="https://wa.me/447492934010"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-whatsapp"
-            >
+              className="btn-whatsapp">
+
               WhatsApp Consultation
             </a>
           </div>
@@ -60,20 +60,20 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="hidden sm:flex absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
-        >
-          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-body">
+          className="hidden sm:flex absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
+
+          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-body font-extrabold">
             Scroll to explore
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-8 bg-foreground/20"
-          />
+            className="w-px h-8 bg-foreground/20" />
+
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;

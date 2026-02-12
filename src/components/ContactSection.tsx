@@ -1,8 +1,8 @@
 import ScrollReveal from "./ScrollReveal";
 import { MapPin, Clock, Phone } from "lucide-react";
 
-const ContactSection = () => (
-  <section id="contact" className="section-luxury">
+const ContactSection = () =>
+<section id="contact" className="section-luxury">
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
         <div className="text-center mb-16">
@@ -10,7 +10,7 @@ const ContactSection = () => (
             Visit us
           </p>
           <h2 className="section-heading text-foreground mb-2">
-            Contact & <span className="italic text-primary">Location</span>
+            Contact & <span className="italic text-primary font-medium">Location</span>
           </h2>
           <div className="luxury-divider" />
         </div>
@@ -64,19 +64,19 @@ const ContactSection = () => (
                 </p>
                 <div className="flex gap-4 mt-2">
                   <a
-                    href="https://wa.me/447492934010"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-primary hover:text-rose-deep transition-colors font-body"
-                  >
+                  href="https://wa.me/447492934010"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:text-rose-deep transition-colors font-body font-semibold">
+
                     WhatsApp
                   </a>
                   <a
-                    href="https://instagram.com/tatianatorresbeauty"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-primary hover:text-rose-deep transition-colors font-body"
-                  >
+                  href="https://instagram.com/tatianatorresbeauty"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:text-rose-deep transition-colors font-body font-semibold">
+
                     @tatianatorresbeauty
                   </a>
                 </div>
@@ -89,20 +89,20 @@ const ContactSection = () => (
         <ScrollReveal delay={0.2}>
           <div className="rounded-2xl overflow-hidden h-80 lg:h-full min-h-[320px] border border-border/50">
             <iframe
-              title="Tatiana Torres Brazilian Aesthetic & Beauty - Bearwood, Birmingham"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.5!2d-1.9685!3d52.4745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDI4JzI4LjIiTiAxwrA1OCc2LjYiVw!5e0!3m2!1sen!2suk!4v1700000000000"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            title="Tatiana Torres Brazilian Aesthetic & Beauty - Bearwood, Birmingham"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.5!2d-1.9685!3d52.4745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDI4JzI4LjIiTiAxwrA1OCc2LjYiVw!5e0!3m2!1sen!2suk!4v1700000000000"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade" />
+
           </div>
         </ScrollReveal>
       </div>
     </div>
-  </section>
-);
+  </section>;
+
 
 export default ContactSection;
