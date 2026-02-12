@@ -49,7 +49,7 @@ const Navigation = () => {
             <span className="font-heading text-2xl tracking-wide text-foreground font-extrabold md:text-4xl">
               Tatiana Torres
             </span>
-            <span className="tracking-[0.35em] uppercase font-body text-rose-300 text-sm font-medium">
+            <span className="tracking-[0.35em] uppercase font-body text-sm font-medium text-primary">
               Brazilian Aesthetic & Beauty
             </span>
           </div>

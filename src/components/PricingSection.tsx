@@ -219,9 +219,9 @@ const PricingSection = () => {
 
         <ScrollReveal>
           <div className="text-center mt-12">
-            <button onClick={() => scrollTo("#booking")} className="btn-primary-luxury">
-              Book Your Treatment
-            </button>
+            
+
+
           </div>
         </ScrollReveal>
       </div>

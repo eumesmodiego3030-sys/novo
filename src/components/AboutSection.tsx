@@ -31,16 +31,16 @@ const AboutSection = () =>
           <div className="luxury-divider mx-0" />
 
           <div className="space-y-5 mt-8">
-            <p className="text-muted-foreground leading-relaxed font-body font-semibold">
+            <p className="leading-relaxed font-body font-semibold text-[#19010c]">
               With over 25 years of experience in the beauty industry, Tatiana began her journey
               in Brazil within a family of hairdressers. At 15, she completed her first professional
               course and managed a salon for nearly a decade.
             </p>
-            <p className="text-muted-foreground leading-relaxed font-body font-semibold">
+            <p className="leading-relaxed font-body font-semibold text-[#140009]">
               She graduated in Industrial Chemistry Technology and Quality Management.
               In 2016, she moved to England, specialising in design and micropigmentation.
             </p>
-            <p className="text-muted-foreground leading-relaxed font-body font-semibold">
+            <p className="leading-relaxed font-body font-semibold text-[#0f0007]">
               In 2020, she co-founded the first Brazilian salon in Birmingham and in 2023,
               opened her own clinic. She holds a Level 7 postgraduate qualification in
               advanced aesthetics and injectable procedures.
@@ -50,15 +50,15 @@ const AboutSection = () =>
           <div className="flex gap-8 mt-10">
             <div>
               <span className="font-heading text-3xl text-primary font-extrabold">25+</span>
-              <p className="text-xs text-muted-foreground mt-1 font-body font-medium">Years Experience</p>
+              <p className="text-xs mt-1 font-body font-medium text-[#19010c]">Years Experience</p>
             </div>
             <div>
               <span className="font-heading text-3xl text-primary font-extrabold">Level 7</span>
-              <p className="text-xs text-muted-foreground mt-1 font-body font-medium">Qualification</p>
+              <p className="text-xs mt-1 font-body font-medium text-[#140109]">Qualification</p>
             </div>
             <div>
               <span className="font-heading text-3xl text-primary font-extrabold">100%</span>
-              <p className="text-xs text-muted-foreground mt-1 font-body font-medium">Dedication</p>
+              <p className="text-xs mt-1 font-body font-medium text-[#0f0007]">Dedication</p>
             </div>
           </div>
         </ScrollReveal>

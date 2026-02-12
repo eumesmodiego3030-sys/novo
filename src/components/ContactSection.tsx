@@ -6,7 +6,7 @@ const ContactSection = () =>
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
         <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body">
+          <p className="tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body text-xl">
             Visit us
           </p>
           <h2 className="section-heading text-foreground mb-2">
