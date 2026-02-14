@@ -1,46 +1,54 @@
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
 
 const treatments = [
   {
+    id: "facial-aesthetics-injectables",
     name: "Facial Aesthetics & Injectables",
     image: botoxImg,
     description: "Anti-wrinkle injections, Profhilo, mesotherapy, lip fillers and skin boosters for a refreshed, youthful appearance.",
     benefits: ["Anti-wrinkle injections", "Dermal fillers", "Profhilo & Lumi"],
   },
   {
+    id: "skin-treatments",
     name: "Skin Treatments",
     image: laserImg,
     description: "Chemical peels, microneedling and deep cleansing facials for radiant, clear and rejuvenated skin.",
     benefits: ["Chemical peels", "Microneedling", "Deep cleansing facials"],
   },
   {
+    id: "micropigmentation-pmu",
     name: "Micropigmentation & PMU",
     image: fillersImg,
     description: "Expert microblading, lip blush, eyeliner and brow techniques for beautifully defined, long-lasting results.",
     benefits: ["Microblading", "Lip blush", "Eyeliner PMU"],
   },
   {
+    id: "body-treatments",
     name: "Body Treatments",
     image: botoxImg,
     description: "Body contouring, lymphatic drainage massage and cellulite treatments for a sculpted, smooth silhouette.",
     benefits: ["Body contouring", "Lymphatic drainage", "Cellulite treatment"],
   },
   {
+    id: "laser-hair-removal",
     name: "Laser Hair Removal",
     image: laserImg,
     description: "Advanced laser technology for permanent hair reduction on all skin types, with comfortable and effective sessions.",
     benefits: ["Full body laser", "All skin types", "Permanent reduction"],
   },
   {
+    id: "brows-lashes-waxing",
     name: "Brows, Lashes & Waxing",
     image: fillersImg,
     description: "Brow shaping, lash lifts, tinting and full-body waxing for a polished, effortless look.",
     benefits: ["Lash lift & tint", "Brow lamination", "Full body waxing"],
   },
   {
+    id: "brazilian-tanning",
     name: "Brazilian Tanning",
     image: botoxImg,
     description: "Flawless, natural-looking Brazilian spray tan for a sun-kissed glow all year round.",
@@ -49,9 +57,7 @@ const treatments = [
 ];
 
 const TreatmentsSection = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { t } = useLanguage();
 
   return (
     <section id="treatments" className="section-luxury">
@@ -59,14 +65,14 @@ const TreatmentsSection = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-bold">
-              Our expertise
+              {t.treatments.label}
             </p>
             <h2 className="section-heading text-foreground mb-2">
-              Featured <span className="italic text-primary font-medium">Treatments</span>
+              {t.treatments.title} <span className="italic text-primary font-medium">{t.treatments.titleHighlight}</span>
             </h2>
             <div className="luxury-divider" />
             <p className="section-subheading mt-6 font-semibold">
-              Each treatment is performed with precision, care and an artistic eye for natural beauty.
+              {t.treatments.subtitle}
             </p>
           </div>
         </ScrollReveal>
@@ -74,7 +80,7 @@ const TreatmentsSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {treatments.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 0.1}>
-              <div className="glass-card group cursor-pointer p-0 overflow-hidden">
+              <div id={t.id} className="glass-card group cursor-pointer p-0 overflow-hidden">
                 <div className="relative h-48 sm:h-56 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src={t.image}
@@ -101,12 +107,6 @@ const TreatmentsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    onClick={() => scrollTo("#booking")}
-                    className="btn-outline-luxury text-xs py-3 px-6 w-full"
-                  >
-                    Book This Treatment
-                  </button>
                 </div>
               </div>
             </ScrollReveal>

@@ -191,8 +191,7 @@
   /* Glass card */
   .glass-card {
     @apply rounded-2xl border border-border/50 p-8;
-    background: hsl(var(--card) / 0.8);
-    backdrop-filter: blur(20px);
+    background: hsl(var(--card));
     box-shadow: var(--shadow-card);
   }
 

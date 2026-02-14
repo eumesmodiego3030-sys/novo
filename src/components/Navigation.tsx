@@ -1,20 +1,23 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const Logo3D = lazy(() => import("@/components/Logo3D"));
 
-const navLinks = [
-{ label: "Home", href: "#home" },
-{ label: "About", href: "#about" },
-{ label: "Treatments", href: "#treatments" },
-{ label: "Prices", href: "#prices" },
-{ label: "Testimonials", href: "#testimonials" },
-{ label: "Contact", href: "#contact" }];
-
-
 const Navigation = () => {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.treatments, href: "#treatments" },
+    { label: t.nav.prices, href: "#prices" },
+    { label: t.nav.testimonials, href: "#testimonials" },
+    { label: t.nav.contact, href: "#contact" }
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -68,12 +71,7 @@ const Navigation = () => {
             </li>
           )}
           <li>
-            
-
-
-
-
-
+            <LanguageSelector />
           </li>
         </ul>
 
@@ -121,6 +119,9 @@ const Navigation = () => {
                   </button>
                 </li>
             )}
+              <li>
+                <LanguageSelector />
+              </li>
               <li>
                 <button
                 onClick={() => scrollTo("#booking")}

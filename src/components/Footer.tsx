@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Phone } from "lucide-react";
+import { Instagram, Facebook, Phone, MapPin, Clock } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const socialLinks = [
   {
@@ -23,11 +24,12 @@ const Footer = () => {
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
+  const { t } = useLanguage();
 
   return (
     <footer className="border-t border-border/30 bg-background/80 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
             <button onClick={() => scrollTo("#home")} className="flex flex-col text-left">
@@ -38,13 +40,9 @@ const Footer = () => {
                 Brazilian Aesthetic & Beauty
               </span>
             </button>
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed font-body">
-              382 Bearwood Road, B66 4ET — Birmingham, UK<br />
-              📞 07492 934010
-            </p>
 
             {/* Social Icons */}
-            <div className="flex gap-3 mt-5">
+            <div className="flex gap-3 mt-6">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -60,13 +58,40 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Address & Hours */}
+          <div>
+            <h4 className="font-heading text-lg font-medium text-foreground mb-4 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-primary" />
+              {t.footer.location}
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed font-body mb-6">
+              {t.contact.addressValue.split("\n").map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i === 0 && <br />}
+                  {i === 1 && <br />}
+                </span>
+              ))}
+            </p>
+
+            <h4 className="font-heading text-lg font-medium text-foreground mb-4 flex items-center gap-2">
+              <Clock className="w-5 h-5 text-primary" />
+              {t.footer.hours}
+            </h4>
+            <div className="text-sm text-muted-foreground font-body space-y-1">
+              <p>{t.contact.hours.weekday}</p>
+              <p>{t.contact.hours.saturday}</p>
+              <p>{t.contact.hours.sunday}</p>
+            </div>
+          </div>
+
           {/* Quick links */}
           <div>
             <h4 className="font-heading text-lg font-medium text-foreground mb-4">
-              Quick Links
+              {t.footer.quickLinks}
             </h4>
             <ul className="space-y-3">
-              {["About", "Treatments", "Testimonials", "Contact", "Booking"].map((l) => (
+              {["About", "Treatments", "Testimonials", "Prices", "Booking"].map((l) => (
                 <li key={l}>
                   <button
                     onClick={() => scrollTo(`#${l.toLowerCase()}`)}
@@ -82,7 +107,7 @@ const Footer = () => {
           {/* Legal */}
           <div>
             <h4 className="font-heading text-lg font-medium text-foreground mb-4">
-              Legal
+              {t.footer.policies}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -106,7 +131,7 @@ const Footer = () => {
 
         <div className="border-t border-border/30 mt-12 pt-8 text-center">
           <p className="text-xs text-muted-foreground font-body">
-            © {new Date().getFullYear()} Tatiana Torres Brazilian Aesthetic & Beauty. All rights reserved.
+            © {new Date().getFullYear()} Tatiana Torres Brazilian Aesthetic & Beauty. {t.footer.allRightsReserved}.
           </p>
         </div>
       </div>

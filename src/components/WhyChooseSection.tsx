@@ -1,38 +1,41 @@
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Heart, ShieldCheck, Sparkles, Users } from "lucide-react";
 
-const reasons = [
-{
-  icon: Heart,
-  title: "Professionalism",
-  description: "Level 7 qualified practitioner with over 25 years of experience in the beauty industry."
-},
-{
-  icon: Sparkles,
-  title: "Innovation",
-  description: "Brazilian techniques combined with the latest advanced aesthetic procedures and technology."
-},
-{
-  icon: ShieldCheck,
-  title: "Care",
-  description: "Every treatment is tailored to your unique features with total dedication to your well-being."
-},
-{
-  icon: Users,
-  title: "Results",
-  description: "Exceptional outcomes that transform self-esteem and boost confidence — naturally."
-}];
+const WhyChooseSection = () => {
+  const { t } = useLanguage();
+  const reasons = [
+    {
+      icon: Heart,
+      title: t.whyChoose.reasons.professionalism.title,
+      description: t.whyChoose.reasons.professionalism.desc,
+    },
+    {
+      icon: Sparkles,
+      title: t.whyChoose.reasons.innovation.title,
+      description: t.whyChoose.reasons.innovation.desc,
+    },
+    {
+      icon: ShieldCheck,
+      title: t.whyChoose.reasons.care.title,
+      description: t.whyChoose.reasons.care.desc,
+    },
+    {
+      icon: Users,
+      title: t.whyChoose.reasons.results.title,
+      description: t.whyChoose.reasons.results.desc,
+    }
+  ];
 
-
-const WhyChooseSection = () =>
+  return (
 <section className="section-luxury">
     <div className="max-w-6xl mx-auto text-center">
       <ScrollReveal>
         <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-semibold">
-          Your journey
+          {t.whyChoose.label}
         </p>
         <h2 className="section-heading text-foreground mb-2">
-          Why Choose <span className="italic text-primary font-medium">Tatiana?</span>
+          {t.whyChoose.title} <span className="italic text-primary font-medium">{t.whyChoose.titleHighlight}</span>
         </h2>
         <div className="luxury-divider" />
       </ScrollReveal>
@@ -55,7 +58,9 @@ const WhyChooseSection = () =>
       )}
       </div>
     </div>
-  </section>;
+  </section>
+  );
+};
 
 
 export default WhyChooseSection;

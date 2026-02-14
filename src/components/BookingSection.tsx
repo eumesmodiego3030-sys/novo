@@ -1,19 +1,21 @@
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const BookingSection = () =>
+const BookingSection = () => {
+  const { t } = useLanguage();
+  return (
 <section id="booking" className="section-luxury">
     <div className="max-w-3xl mx-auto text-center">
       <ScrollReveal>
         <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-extrabold">
-          Ready to begin?
+          {t.booking.label}
         </p>
         <h2 className="section-heading text-foreground mb-2">
-          Book Your <span className="italic text-primary font-medium">Consultation</span>
+          {t.booking.title} <span className="italic text-primary font-medium">{t.booking.titleHighlight}</span>
         </h2>
         <div className="luxury-divider" />
         <p className="section-subheading mt-6 mb-10 font-medium">
-          Take the first step towards enhancing your natural beauty. Book a personalised
-          consultation with Tatiana today — online or via WhatsApp.
+          {t.booking.description}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -23,22 +25,24 @@ const BookingSection = () =>
           rel="noopener noreferrer"
           className="btn-whatsapp">
 
-            WhatsApp Consultation
+            {t.booking.whatsappConsultation}
           </a>
           <a
           href="#"
           className="btn-primary-luxury">
 
-            Book Online
+            {t.booking.bookOnline}
           </a>
         </div>
 
         <p className="text-xs text-muted-foreground mt-8 font-body font-medium">
-          Free initial consultation · No obligation · Discreet & confidential
+          {t.booking.note}
         </p>
       </ScrollReveal>
     </div>
-  </section>;
+  </section>
+  );
+};
 
 
 export default BookingSection;

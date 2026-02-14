@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface BeforeAfterSliderProps {
   beforeLabel: string;
@@ -90,16 +91,18 @@ const comparisons = [
   { beforeLabel: "Before", afterLabel: "After", treatment: "Skin Rejuvenation" },
 ];
 
-const BeforeAfterSection = () => (
+const BeforeAfterSection = () => {
+  const { t } = useLanguage();
+  return (
   <section id="results" className="section-luxury">
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
         <div className="text-center mb-16">
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-bold">
-            Real results
+            {t.beforeAfter.label}
           </p>
           <h2 className="section-heading text-foreground mb-2">
-            Before & <span className="italic text-primary font-medium">After</span>
+            {t.beforeAfter.title} <span className="italic text-primary font-medium">{t.beforeAfter.titleHighlight}</span>
           </h2>
           <div className="luxury-divider" />
           <p className="section-subheading mt-6 font-medium">
@@ -123,6 +126,6 @@ const BeforeAfterSection = () => (
       </ScrollReveal>
     </div>
   </section>
-);
+)};
 
 export default BeforeAfterSection;

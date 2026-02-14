@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
-import VideoBackground from "@/components/VideoBackground";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import VideoSection from "@/components/VideoSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import AboutSection from "@/components/AboutSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
@@ -11,8 +11,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import BookingSection from "@/components/BookingSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FloatingChat from "@/components/FloatingChat";
 import SplashScreen from "@/components/SplashScreen";
+import ShoppingCartPanel from "@/components/ShoppingCartPanel";
 
 const Index = () => {
   const [splashDone, setSplashDone] = useState(false);
@@ -21,9 +21,9 @@ const Index = () => {
   return (
     <>
       {!splashDone && <SplashScreen onFinished={handleSplashFinished} />}
-      <VideoBackground />
       <Navigation />
       <main>
+        <VideoSection />
         <HeroSection />
         <WhyChooseSection />
         <AboutSection />
@@ -35,7 +35,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <FloatingChat />
+      <ShoppingCartPanel />
     </>
   );
 };

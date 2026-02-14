@@ -1,7 +1,9 @@
 import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { useCart } from "@/i18n/CartContext";
 
 interface PriceItem {
   name: string;
@@ -11,6 +13,7 @@ interface PriceItem {
 interface PriceCategory {
   title: string;
   emoji: string;
+  treatmentId?: string;
   items: PriceItem[];
   note?: string;
 }
@@ -19,6 +22,7 @@ const categories: PriceCategory[] = [
 {
   title: "Facial Aesthetics & Injectables",
   emoji: "💉",
+  treatmentId: "facial-aesthetics-injectables",
   items: [
   { name: "Anti-Wrinkle Injection – 1 Area", price: "£200" },
   { name: "Anti-Wrinkle Injection – 2 Areas", price: "£240" },
@@ -35,6 +39,7 @@ const categories: PriceCategory[] = [
 {
   title: "Skin Treatments",
   emoji: "✨",
+  treatmentId: "skin-treatments",
   items: [
   { name: "Chemical Peel (single)", price: "£120" },
   { name: "Chemical Peel (3 sessions)", price: "£310" },
@@ -49,6 +54,7 @@ const categories: PriceCategory[] = [
 {
   title: "Body Treatments",
   emoji: "🧴",
+  treatmentId: "body-treatments",
   items: [
   { name: "Scalp Microneedling for Hair Loss", price: "£80" },
   { name: "Stretch Marks Microneedling (session)", price: "£80" },
@@ -64,6 +70,7 @@ const categories: PriceCategory[] = [
 {
   title: "Laser Hair Removal (Diode)",
   emoji: "⚡",
+  treatmentId: "laser-hair-removal",
   items: [
   { name: "Hollywood / Brazilian", price: "£70" },
   { name: "Full Leg", price: "£80" },
@@ -96,6 +103,7 @@ const categories: PriceCategory[] = [
 {
   title: "Brows & Lashes",
   emoji: "👁️",
+  treatmentId: "brows-lashes-waxing",
   items: [
   { name: "Eyebrow Shaping", price: "£15" },
   { name: "Henna Shaping", price: "£25" },
@@ -109,6 +117,7 @@ const categories: PriceCategory[] = [
 {
   title: "Micropigmentation (PMU)",
   emoji: "🖊️",
+  treatmentId: "micropigmentation-pmu",
   items: [
   { name: "Microblading / Nanoblading", price: "£220" },
   { name: "Eyebrows Shadow", price: "£220" },
@@ -120,6 +129,7 @@ const categories: PriceCategory[] = [
 {
   title: "Brazilian Tanning",
   emoji: "☀️",
+  treatmentId: "brazilian-tanning",
   items: [
   { name: "Brazilian Sunbed", price: "£50" },
   { name: "Spraytan Organic", price: "£45" },
@@ -132,14 +142,39 @@ const categories: PriceCategory[] = [
 
 
 const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: number;}) => {
+  const { addItem, removeItem, items } = useCart();
   const [open, setOpen] = useState(index === 0);
+
+  const handleHeaderClick = () => {
+    setOpen(!open);
+  };
+
+  const getItemQuantity = (itemName: string) => {
+    const item = items.find((i) => i.name === itemName);
+    return item?.quantity || 0;
+  };
+
+  const handleAddItem = (item: PriceItem) => {
+    const priceNumeric = parseFloat(item.price.replace("£", ""));
+    addItem({
+      name: item.name,
+      price: item.price,
+      quantity: 1,
+      category: category.title,
+      priceNumeric,
+    });
+  };
+
+  const handleRemoveItem = (itemName: string) => {
+    removeItem(itemName);
+  };
 
   return (
     <ScrollReveal delay={index * 0.05}>
-      <div className="glass-card p-0 overflow-hidden mb-4 cursor-pointer" style={{ transform: "none" }}>
+      <div className="glass-card p-0 overflow-hidden mb-4" style={{ transform: "none" }}>
         <button
-          onClick={() => setOpen(!open)}
-          className="w-full flex items-center justify-between p-6 text-left">
+          onClick={handleHeaderClick}
+          className="w-full flex items-center justify-between p-6 text-left cursor-pointer">
 
           <div className="flex items-center gap-3">
             <span className="text-xl">{category.emoji}</span>
@@ -166,34 +201,62 @@ const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: 
 
               <div className="px-6 pb-6">
                 <div className="border-t border-border/50 pt-4">
-                  {category.items.map((item) =>
-                <div
-                  key={item.name}
-                  className="flex items-center justify-between py-2.5 border-b border-border/20 last:border-0">
-
-                      <span className="text-sm text-muted-foreground font-body">{item.name}</span>
-                      <span className="font-heading text-lg font-medium text-foreground ml-4 whitespace-nowrap">
-                        {item.price}
-                      </span>
-                    </div>
-                )}
+                  {category.items.map((item) => {
+                    const quantity = getItemQuantity(item.name);
+                    return (
+                      <div
+                        key={item.name}
+                        className="w-full flex items-center justify-between py-3 border-b border-border/20 last:border-0 px-2"
+                      >
+                        <div className="flex-1">
+                          <span className="text-sm text-muted-foreground font-body">
+                            {item.name}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="font-heading text-lg font-medium text-primary whitespace-nowrap">
+                            {item.price}
+                          </span>
+                          <div className="flex items-center gap-2 bg-accent/50 rounded-lg p-1">
+                            {quantity > 0 ? (
+                              <>
+                                <button
+                                  onClick={() => handleRemoveItem(item.name)}
+                                  className="w-6 h-6 flex items-center justify-center hover:bg-accent transition-colors rounded text-destructive"
+                                >
+                                  <Minus className="w-4 h-4" />
+                                </button>
+                                <span className="w-6 text-center font-medium text-sm">
+                                  {quantity}
+                                </span>
+                              </>
+                            ) : null}
+                            <button
+                              onClick={() => handleAddItem(item)}
+                              className="w-6 h-6 flex items-center justify-center hover:bg-primary/90 bg-primary text-primary-foreground transition-colors rounded"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                   {category.note &&
-                <p className="text-xs text-primary mt-3 font-body italic">{category.note}</p>
-                }
+                    <p className="text-xs text-primary mt-3 font-body italic">{category.note}</p>
+                  }
                 </div>
               </div>
             </motion.div>
           }
         </AnimatePresence>
       </div>
-    </ScrollReveal>);
-
+    </ScrollReveal>
+  );
 };
 
 const PricingSection = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { t } = useLanguage();
 
   return (
     <section id="prices" className="section-luxury">
@@ -201,14 +264,14 @@ const PricingSection = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-extrabold">
-              Transparent pricing
+              {t.pricing.label}
             </p>
             <h2 className="section-heading text-foreground mb-2">
-              Our <span className="italic text-primary font-medium">Prices</span>
+              {t.pricing.title} <span className="italic text-primary font-medium">{t.pricing.titleHighlight}</span>
             </h2>
             <div className="luxury-divider" />
             <p className="section-subheading mt-6 font-normal">
-              Quality treatments at fair prices. Book a free consultation to discuss your personalised plan.
+              {t.pricing.description}
             </p>
           </div>
         </ScrollReveal>
