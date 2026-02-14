@@ -1,6 +1,7 @@
 import ScrollReveal from "./ScrollReveal";
 import { Star, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
@@ -129,51 +130,81 @@ const TestimonialsSection = () => {
 
         {/* Carousel with 2 testimonials side by side */}
         <div className="mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
-            {visibleTestimonials.map((testimonial) => (
-              <ScrollReveal key={testimonial.name}>
-                <div className="glass-card p-8">
-                  <TestimonialCard testimonial={testimonial} />
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8" key={currentIndex}>
+              {visibleTestimonials.map((testimonial, idx) => (
+                <ScrollReveal key={testimonial.name}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    className="glass-card p-8 cursor-pointer"
+                    whileHover={{
+                      y: -8,
+                      boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+                    }}
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <TestimonialCard testimonial={testimonial} />
+                    </motion.div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </AnimatePresence>
 
           {/* Navigation buttons */}
           <div className="flex items-center justify-center gap-4">
-            <button
+            <motion.button
               onClick={handlePrev}
-              className="p-3 rounded-full border border-border hover:bg-accent transition-colors"
+              className="p-3 rounded-full border border-border"
+              whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--accent))" }}
+              whileTap={{ scale: 0.95 }}
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
-            </button>
+            </motion.button>
 
             {/* Dots indicator */}
             <div className="flex gap-2">
               {Array.from({ length: Math.ceil(testimonials.length / 2) }).map(
                 (_, i) => (
-                  <button
+                  <motion.button
                     key={i}
                     onClick={() => setCurrentIndex((i * 2) % testimonials.length)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`rounded-full transition-all ${
                       i === Math.floor(currentIndex / 2)
-                        ? "bg-primary w-6"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                        ? "bg-primary"
+                        : "bg-muted-foreground/30"
                     }`}
+                    animate={
+                      i === Math.floor(currentIndex / 2)
+                        ? { width: 24, height: 8 }
+                        : { width: 8, height: 8 }
+                    }
+                    whileHover={{
+                      backgroundColor: "hsl(var(--primary))",
+                      scale: 1.2,
+                    }}
                     aria-label={`Go to testimonial set ${i + 1}`}
                   />
                 )
               )}
             </div>
 
-            <button
+            <motion.button
               onClick={handleNext}
-              className="p-3 rounded-full border border-border hover:bg-accent transition-colors"
+              className="p-3 rounded-full border border-border"
+              whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--accent))" }}
+              whileTap={{ scale: 0.95 }}
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
         </div>
 

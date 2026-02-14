@@ -31,20 +31,26 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
+            <motion.button
               onClick={() => scrollTo("#booking")}
-              className="btn-primary-luxury">
-
+              className="btn-primary-luxury"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
               {t.hero.bookConsultation}
-            </button>
-            <a
+            </motion.button>
+            <motion.a
               href="https://wa.me/447492934010"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-whatsapp">
-
+              className="btn-whatsapp"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
               {t.hero.whatsappConsultation}
-            </a>
+            </motion.a>
           </div>
         </motion.div>
 

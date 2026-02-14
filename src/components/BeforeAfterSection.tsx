@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { motion } from "framer-motion";
 
 interface BeforeAfterSliderProps {
   beforeLabel: string;
@@ -31,7 +32,7 @@ const BeforeAfterSlider = ({ beforeLabel, afterLabel, treatment }: BeforeAfterSl
 
   return (
     <div className="text-center">
-      <div
+      <motion.div
         ref={containerRef}
         className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-col-resize select-none border border-border/30"
         onMouseDown={handleMouseDown}
@@ -40,6 +41,8 @@ const BeforeAfterSlider = ({ beforeLabel, afterLabel, treatment }: BeforeAfterSl
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
+        whileHover={{ boxShadow: "0 20px 40px rgba(0,0,0,0.15)", borderColor: "hsl(var(--primary))" }}
+        transition={{ duration: 0.3 }}
       >
         {/* Before (full width, below) */}
         <div className="absolute inset-0 bg-secondary">
@@ -59,18 +62,24 @@ const BeforeAfterSlider = ({ beforeLabel, afterLabel, treatment }: BeforeAfterSl
         </div>
 
         {/* Slider line */}
-        <div
+        <motion.div
           className="absolute top-0 bottom-0 w-0.5 bg-primary-foreground/80 z-10"
           style={{ left: `${position}%` }}
+          whileHover={{ backgroundColor: "hsl(var(--primary))", boxShadow: "0 0 20px hsl(var(--primary))" }}
         >
           {/* Handle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background border-2 border-primary shadow-lg flex items-center justify-center">
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background border-2 border-primary shadow-lg flex items-center justify-center"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-primary">
               <path d="M5 3L2 8L5 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M11 3L14 8L11 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Labels */}
         <span className="absolute bottom-4 left-4 text-xs font-body font-semibold tracking-widest uppercase text-foreground/60 bg-background/70 backdrop-blur-sm px-3 py-1 rounded-full">

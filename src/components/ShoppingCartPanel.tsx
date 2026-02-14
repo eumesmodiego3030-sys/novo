@@ -86,44 +86,58 @@ const ShoppingCartPanel = () => {
                   <>
                     <div className="space-y-4 mb-6">
                       {items.map((item) => (
-                        <div
+                        <motion.div
                           key={item.name}
-                          className="bg-accent/50 rounded-lg p-4 space-y-3"
+                          className="bg-accent/50 rounded-lg p-4 space-y-3 cursor-pointer"
+                          whileHover={{ scale: 1.02, backgroundColor: "hsl(var(--accent)/0.7)" }}
+                          transition={{ duration: 0.2 }}
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
                               <p className="font-medium text-foreground">{item.name}</p>
                               <p className="text-sm text-muted-foreground">{item.category}</p>
                             </div>
-                            <button
+                            <motion.button
                               onClick={() => removeItem(item.name)}
-                              className="text-muted-foreground hover:text-destructive transition-colors"
+                              className="text-muted-foreground hover:text-destructive"
+                              whileHover={{ scale: 1.2, rotate: 180 }}
+                              whileTap={{ scale: 0.9 }}
                             >
                               <X className="w-4 h-4" />
-                            </button>
+                            </motion.button>
                           </div>
 
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2 bg-background rounded-lg p-1">
-                              <button
+                              <motion.button
                                 onClick={() =>
                                   updateQuantity(item.name, item.quantity - 1)
                                 }
                                 className="w-7 h-7 flex items-center justify-center hover:bg-accent transition-colors rounded"
+                                whileHover={{ scale: 1.2, rotate: -90 }}
+                                whileTap={{ scale: 0.9 }}
                               >
                                 −
-                              </button>
-                              <span className="w-8 text-center font-medium">
+                              </motion.button>
+                              <motion.span 
+                                className="w-8 text-center font-medium"
+                                animate={{ scale: 1 }}
+                                key={item.quantity}
+                                initial={{ scale: 0.8 }}
+                                transition={{ duration: 0.2 }}
+                              >
                                 {item.quantity}
-                              </span>
-                              <button
+                              </motion.span>
+                              <motion.button
                                 onClick={() =>
                                   updateQuantity(item.name, item.quantity + 1)
                                 }
                                 className="w-7 h-7 flex items-center justify-center hover:bg-accent transition-colors rounded"
+                                whileHover={{ scale: 1.2, rotate: 90 }}
+                                whileTap={{ scale: 0.9 }}
                               >
                                 +
-                              </button>
+                              </motion.button>
                             </div>
                             <p className="font-heading font-medium text-primary">
                               £{(item.priceNumeric * item.quantity).toFixed(2)}

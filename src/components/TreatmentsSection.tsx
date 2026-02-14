@@ -1,5 +1,6 @@
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { motion } from "framer-motion";
 import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
@@ -80,35 +81,56 @@ const TreatmentsSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {treatments.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 0.1}>
-              <div id={t.id} className="glass-card group cursor-pointer p-0 overflow-hidden">
+              <motion.div
+                id={t.id}
+                className="glass-card group cursor-pointer p-0 overflow-hidden h-full"
+                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <div className="relative h-48 sm:h-56 overflow-hidden bg-white flex items-center justify-center">
-                  <img
+                  <motion.img
                     src={t.image}
                     alt={t.name}
-                    className="mx-auto h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="mx-auto h-full w-auto object-contain"
+                    whileHover={{ scale: 1.1, rotate: 2 }}
+                    transition={{ duration: 0.4 }}
                   />
-                  <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/5 transition-colors duration-500" />
+                  <motion.div
+                    className="absolute inset-0 bg-foreground/10"
+                    whileHover={{ backgroundColor: "rgba(0,0,0,0.02)" }}
+                    transition={{ duration: 0.4 }}
+                  />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium text-foreground mb-3">
+                  <motion.h3
+                    className="font-heading text-xl sm:text-2xl font-medium text-foreground mb-3"
+                    whileHover={{ color: "hsl(var(--primary))" }}
+                    transition={{ duration: 0.2 }}
+                  >
                     {t.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 font-body">
+                  </motion.h3>
+                  <motion.p
+                    className="text-sm text-muted-foreground leading-relaxed mb-4 font-body"
+                    whileHover={{ color: "hsl(var(--foreground)/0.8)" }}
+                    transition={{ duration: 0.2 }}
+                  >
                     {t.description}
-                  </p>
+                  </motion.p>
                   <ul className="space-y-2 mb-6">
-                    {t.benefits.map((b) => (
-                      <li
+                    {t.benefits.map((b, idx) => (
+                      <motion.li
                         key={b}
                         className="text-xs text-muted-foreground font-body flex items-center gap-2"
+                        whileHover={{ x: 4, color: "hsl(var(--primary))" }}
+                        transition={{ duration: 0.2, delay: idx * 0.05 }}
                       >
                         <span className="w-1 h-1 rounded-full bg-primary" />
                         {b}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             </ScrollReveal>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import ScrollReveal from "./ScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { motion } from "framer-motion";
 
 const BookingSection = () => {
   const { t } = useLanguage();
@@ -19,20 +20,26 @@ const BookingSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-          href="https://wa.me/447492934010"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-whatsapp">
-
+          <motion.a
+            href="https://wa.me/447492934010"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
             {t.booking.whatsappConsultation}
-          </a>
-          <a
-          href="#"
-          className="btn-primary-luxury">
-
+          </motion.a>
+          <motion.a
+            href="#"
+            className="btn-primary-luxury"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
             {t.booking.bookOnline}
-          </a>
+          </motion.a>
         </div>
 
         <p className="text-xs text-muted-foreground mt-8 font-body font-medium">

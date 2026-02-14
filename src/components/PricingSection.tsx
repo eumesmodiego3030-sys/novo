@@ -201,42 +201,64 @@ const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: 
 
               <div className="px-6 pb-6">
                 <div className="border-t border-border/50 pt-4">
-                  {category.items.map((item) => {
+                  {category.items.map((item, itemIdx) => {
                     const quantity = getItemQuantity(item.name);
                     return (
-                      <div
+                      <motion.div
                         key={item.name}
-                        className="w-full flex items-center justify-between py-3 border-b border-border/20 last:border-0 px-2"
+                        className="w-full flex items-center justify-between py-3 border-b border-border/20 last:border-0 px-2 cursor-pointer"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: itemIdx * 0.05 }}
+                        whileHover={{ backgroundColor: "hsl(var(--accent)/0.3)", x: 4 }}
                       >
                         <div className="flex-1">
-                          <span className="text-sm text-muted-foreground font-body">
+                          <motion.span
+                            className="text-sm text-muted-foreground font-body"
+                            whileHover={{ color: "hsl(var(--foreground))" }}
+                            transition={{ duration: 0.2 }}
+                          >
                             {item.name}
-                          </span>
+                          </motion.span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="font-heading text-lg font-medium text-primary whitespace-nowrap">
+                          <motion.span
+                            className="font-heading text-lg font-medium text-primary whitespace-nowrap"
+                            whileHover={{ scale: 1.1, color: "hsl(var(--primary)/0.8)" }}
+                            transition={{ duration: 0.2 }}
+                          >
                             {item.price}
-                          </span>
+                          </motion.span>
                           <div className="flex items-center gap-2 bg-accent/50 rounded-lg p-1">
                             {quantity > 0 ? (
                               <>
-                                <button
+                                <motion.button
                                   onClick={() => handleRemoveItem(item.name)}
                                   className="w-6 h-6 flex items-center justify-center hover:bg-accent transition-colors rounded text-destructive"
+                                  whileHover={{ scale: 1.2, rotate: 180 }}
+                                  whileTap={{ scale: 0.9 }}
                                 >
                                   <Minus className="w-4 h-4" />
-                                </button>
-                                <span className="w-6 text-center font-medium text-sm">
+                                </motion.button>
+                                <motion.span
+                                  className="w-6 text-center font-medium text-sm"
+                                  key={quantity}
+                                  initial={{ scale: 0.8 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ duration: 0.2 }}
+                                >
                                   {quantity}
-                                </span>
+                                </motion.span>
                               </>
                             ) : null}
-                            <button
+                            <motion.button
                               onClick={() => handleAddItem(item)}
                               className="w-6 h-6 flex items-center justify-center hover:bg-primary/90 bg-primary text-primary-foreground transition-colors rounded"
+                              whileHover={{ scale: 1.2, rotate: 90 }}
+                              whileTap={{ scale: 0.9 }}
                             >
                               <Plus className="w-4 h-4" />
-                            </button>
+                            </motion.button>
                           </div>
                         </div>
                       </div>

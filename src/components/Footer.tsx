@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Phone, MapPin, Clock } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { motion } from "framer-motion";
 
 const socialLinks = [
   {
@@ -44,16 +45,19 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex gap-3 mt-6">
               {socialLinks.map((s) => (
-                <a
+                <motion.a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                  className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground"
+                  whileHover={{ scale: 1.2, rotate: 10, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <s.icon className="w-4 h-4" strokeWidth={1.5} />
-                </a>
+                </motion.a>
               ))}
             </div>
           </div>
@@ -93,12 +97,14 @@ const Footer = () => {
             <ul className="space-y-3">
               {["About", "Treatments", "Testimonials", "Prices", "Booking"].map((l) => (
                 <li key={l}>
-                  <button
+                  <motion.button
                     onClick={() => scrollTo(`#${l.toLowerCase()}`)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
+                    className="text-sm text-muted-foreground font-body"
+                    whileHover={{ x: 4, color: "hsl(var(--primary))" }}
+                    transition={{ duration: 0.2 }}
                   >
                     {l}
-                  </button>
+                  </motion.button>
                 </li>
               ))}
             </ul>
@@ -111,19 +117,37 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
-                  Privacy Policy
-                </Link>
+                <motion.div
+                  whileHover={{ x: 4, color: "hsl(var(--primary))" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm text-muted-foreground font-body"
+                >
+                  <Link to="/privacy" className="block">
+                    Privacy Policy
+                  </Link>
+                </motion.div>
               </li>
               <li>
-                <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
-                  Cookie Policy
-                </Link>
+                <motion.div
+                  whileHover={{ x: 4, color: "hsl(var(--primary))" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm text-muted-foreground font-body"
+                >
+                  <Link to="/cookies" className="block">
+                    Cookie Policy
+                  </Link>
+                </motion.div>
               </li>
               <li>
-                <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
-                  Terms & Conditions
-                </Link>
+                <motion.div
+                  whileHover={{ x: 4, color: "hsl(var(--primary))" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm text-muted-foreground font-body"
+                >
+                  <Link to="/terms" className="block">
+                    Terms & Conditions
+                  </Link>
+                </motion.div>
               </li>
             </ul>
           </div>
