@@ -1,11 +1,11 @@
 import { useCart } from "@/i18n/CartContext";
+import { useCartUI } from "@/context/CartUIContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ShoppingCart } from "lucide-react";
-import { useState } from "react";
 
 const ShoppingCartPanel = () => {
   const { items, removeItem, updateQuantity, getTotalPrice, getTotalItems, clearCart } = useCart();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useCartUI();
 
   const handleCheckout = () => {
     if (items.length === 0) return;
@@ -28,21 +28,6 @@ const ShoppingCartPanel = () => {
 
   return (
     <>
-      {/* Botão flutuante do carrinho */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-8 right-8 z-40 bg-primary text-primary-foreground rounded-full p-4 shadow-lg hover:shadow-xl"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <ShoppingCart className="w-6 h-6" />
-        {getTotalItems() > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-            {getTotalItems()}
-          </span>
-        )}
-      </motion.button>
-
       {/* Painel do carrinho */}
       <AnimatePresence>
         {isOpen && (

@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useChat } from '@/hooks/useChat';
+import { useCart } from '@/i18n/CartContext';
+import { useCartUI } from '@/context/CartUIContext';
 import { useState } from 'react';
 
 export function ChatBot() {
@@ -19,6 +21,9 @@ export function ChatBot() {
     setIsOpen,
     sendMessage,
   } = useChat();
+
+  const { getTotalItems } = useCart();
+  const { isOpen: isCartOpen, setIsOpen: setIsCartOpen } = useCartUI();
 
   // Initialize chat with greeting on first open
   useEffect(() => {
@@ -59,19 +64,43 @@ export function ChatBot() {
     <div className="fixed bottom-6 right-6 z-50 pointer-events-none">
       <div className="pointer-events-auto flex items-end gap-4">
         <AnimatePresence mode="wait">
-          {!isOpen ? (
-            <motion.button
+        {!isOpen && !isCartOpen ? (
+            <motion.div
               key="closed"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0, transition: { duration: 0.2 } }}
-              onClick={handleOpen}
-              className="relative bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full p-4 shadow-lg transition-all duration-200 hover:shadow-xl"
-              aria-label="Abrir chat"
+              className="flex items-center gap-0 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full py-3 px-1 shadow-lg transition-all duration-200 hover:shadow-xl"
             >
-              <MessageCircle size={24} />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse" />
-            </motion.button>
+              {/* Chat Button */}
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setIsCartOpen(false);
+                }}
+                className="p-3 rounded-full hover:bg-white/10 transition-colors"
+                aria-label="Abrir chat"
+              >
+                <MessageCircle size={24} />
+              </button>
+              
+              {/* Cart Button */}
+              <button
+                onClick={() => {
+                  setIsCartOpen(true);
+                  setIsOpen(false);
+                }}
+                className="p-3 rounded-full hover:bg-white/10 transition-colors"
+                aria-label="Abrir carrinho"
+              >
+                <ShoppingCart size={24} />
+              </button>
+              
+              {/* Badge */}
+              <span className="w-6 h-6 bg-red-500 rounded-full animate-pulse flex items-center justify-center text-xs font-bold text-white ml-1">
+                {getTotalItems() > 0 ? getTotalItems() : '1'}
+              </span>
+            </motion.div>
           ) : null}
         </AnimatePresence>
         <AnimatePresence mode="wait">
