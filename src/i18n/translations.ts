@@ -46,6 +46,10 @@ export const translations = {
       title: "Meet",
       titleHighlight: "Tatiana",
       description: "With over 25 years of experience in the beauty industry, Tatiana is a Level 7 qualified practitioner specialising in advanced Brazilian aesthetic treatments. Her passion for enhancing natural beauty with precision and artistry has transformed the confidence of countless clients.",
+      subheading: "Founder & Aesthetic Practitioner",
+      bio1: "With over 25 years of experience in the beauty industry, Tatiana began her journey in Brazil within a family of hairdressers. At 15, she completed her first professional course and managed a salon for nearly a decade.",
+      bio2: "She graduated in Industrial Chemistry Technology and Quality Management. In 2016, she moved to England, specialising in design and micropigmentation.",
+      bio3: "In 2020, she co-founded the first Brazilian salon in Birmingham and in 2023, opened her own clinic. She holds a Level 7 postgraduate qualification in advanced aesthetics and injectable procedures.",
     },
     treatments: {
       label: "Our expertise",
@@ -140,6 +144,44 @@ export const translations = {
       label: "Real feedback",
       title: "What Our",
       titleHighlight: "Clients Say",
+      data: [
+        {
+          name: "Sophie M.",
+          treatment: "Dermal Fillers",
+          text: "Tatiana is incredible. She listened to exactly what I wanted and the results are so natural — I look refreshed, not different. Couldn't recommend her more!",
+          rating: 5,
+        },
+        {
+          name: "Emma R.",
+          treatment: "Botox",
+          text: "I was nervous about my first treatment but Tatiana made me feel so comfortable. The results are beautiful and subtle, exactly what I hoped for.",
+          rating: 5,
+        },
+        {
+          name: "Charlotte W.",
+          treatment: "Laser Treatment",
+          text: "The clinic is stunning and so welcoming. Tatiana's expertise really shows — my skin has never looked better. An absolutely wonderful experience.",
+          rating: 5,
+        },
+        {
+          name: "Jessica L.",
+          treatment: "Lip Fillers",
+          text: "Best lip fillers I've ever had! Tatiana has such an artistic eye. My lips look fuller but still completely natural. Everyone asks what my secret is!",
+          rating: 5,
+        },
+        {
+          name: "Olivia T.",
+          treatment: "Microblading",
+          text: "I woke up every morning with perfect brows now. Tatiana took so much time to get the shape exactly right. Life-changing treatment!",
+          rating: 5,
+        },
+        {
+          name: "Amelia K.",
+          treatment: "Chemical Peel",
+          text: "My skin was dull and uneven, but after just one session with Tatiana it was glowing. She explained everything clearly and I felt so looked after.",
+          rating: 5,
+        },
+      ],
     },
     footer: {
       allRightsReserved: "All rights reserved",
@@ -198,6 +240,10 @@ export const translations = {
       title: "Conheça",
       titleHighlight: "Tatiana",
       description: "Com mais de 25 anos de experiência na indústria da beleza, Tatiana é uma praticante qualificada nível 7 especializada em tratamentos estéticos brasileiros avançados. Sua paixão por realçar a beleza natural com precisão e artialismo transformou a confiança de inúmeros clientes.",
+      subheading: "Fundadora & Praticante de Estética",
+      bio1: "Com mais de 25 anos de experiência na indústria da beleza, Tatiana começou sua jornada no Brasil em uma família de cabeleireiros. Aos 15 anos, completou seu primeiro curso profissional e gerenciou um salão por quase uma década.",
+      bio2: "Ela se formou em Tecnologia em Química Industrial e Gestão de Qualidade. Em 2016, se mudou para a Inglaterra, especializando-se em design e micropigmentação.",
+      bio3: "Em 2020, co-fundou o primeiro salão brasileiro em Birmingham e em 2023, abriu sua própria clínica. Ela tem uma qualificação pós-graduada de nível 7 em estética avançada e procedimentos injetáveis.",
     },
     treatments: {
       label: "Nosso conhecimento",
@@ -292,6 +338,44 @@ export const translations = {
       label: "Feedback real",
       title: "O que Nossos",
       titleHighlight: "Clientes Dizem",
+      data: [
+        {
+          name: "Sophie M.",
+          treatment: "Preenchimento Dérmico",
+          text: "Tatiana é incrível. Ela ouviu exatamente o que eu queria e o resultado é tão natural — fico mais fresca, não diferente. Não pude recomendar mais!",
+          rating: 5,
+        },
+        {
+          name: "Emma R.",
+          treatment: "Botox",
+          text: "Estava nervosa com meu primeiro tratamento, mas Tatiana me fez sentir confortável. O resultado é bonito e sutil, exatamente o que esperava.",
+          rating: 5,
+        },
+        {
+          name: "Charlotte W.",
+          treatment: "Tratamento a Laser",
+          text: "A clínica é linda e muito acolhedora. A expertise de Tatiana realmente aparece — minha pele nunca ficou melhor. Uma experiência absolutamente maravilhosa.",
+          rating: 5,
+        },
+        {
+          name: "Jessica L.",
+          treatment: "Preenchimento Labial",
+          text: "Melhores preenchimentos labiais que já tive! Tatiana tem um olhar artístico. Meus lábios ficaram mais cheios, mas totalmente naturais. Todos perguntam qual é meu segredo!",
+          rating: 5,
+        },
+        {
+          name: "Olivia T.",
+          treatment: "Microblading",
+          text: "Acordo agora com as sobrancelhas perfeitas. Tatiana levou tanto tempo para acertar exatamente o formato. Tratamento que muda a vida!",
+          rating: 5,
+        },
+        {
+          name: "Amelia K.",
+          treatment: "Peeling Químico",
+          text: "Minha pele estava opaca e desigual, mas após apenas uma sessão com Tatiana ficou radiante. Ela explicou tudo com clareza e me fiz muito cuidada.",
+          rating: 5,
+        },
+      ],
     },
     footer: {
       allRightsReserved: "Todos os direitos reservados",
@@ -348,6 +432,10 @@ export const translations = {
       title: "Conoce a",
       titleHighlight: "Tatiana",
       description: "Con más de 25 años de experiencia en la industria de la belleza, Tatiana es una profesional calificada nivel 7 especializada en tratamientos estéticos brasileños avanzados. Su pasión por realzar la belleza natural con precisión y artesanía ha transformado la confianza de innumerables clientes.",
+      subheading: "Fundadora & Profesional de Estética",
+      bio1: "Con más de 25 años de experiencia en la industria de la belleza, Tatiana comenzó su viaje en Brasil en una familia de peluqueros. A los 15 años, completó su primer curso profesional y administró un salón durante casi una década.",
+      bio2: "Se graduó en Tecnología de Química Industrial y Gestión de Calidad. En 2016, se mudó a Inglaterra, especializándose en diseño y micropigmentación.",
+      bio3: "En 2020, cofundó el primer salón brasileño en Birmingham y en 2023, abrió su propia clínica. Tiene una calificación de posgrado de nivel 7 en estética avanzada y procedimientos inyectables.",
     },
     treatments: {
       label: "Nuestra experiencia",
@@ -442,6 +530,44 @@ export const translations = {
       label: "Comentarios reales",
       title: "Lo que Dicen",
       titleHighlight: "Nuestros Clientes",
+      data: [
+        {
+          name: "Sophie M.",
+          treatment: "Rellenos Dérmicos",
+          text: "¡Tatiana es increíble! Escuchó exactamente lo que quería y el resultado es tan natural — me veo fresca, no diferente. ¡No puedo recomendarla más!",
+          rating: 5,
+        },
+        {
+          name: "Emma R.",
+          treatment: "Botox",
+          text: "Estaba nerviosa por mi primer tratamiento, pero Tatiana me hizo sentir muy cómoda. Los resultados son hermosos y sutiles, exactamente lo que esperaba.",
+          rating: 5,
+        },
+        {
+          name: "Charlotte W.",
+          treatment: "Tratamiento Láser",
+          text: "La clínica es hermosa y muy acogedora. La experiencia de Tatiana realmente se nota — mi piel nunca se ha visto mejor. Una experiencia absolutamente extraordinaria.",
+          rating: 5,
+        },
+        {
+          name: "Jessica L.",
+          treatment: "Rellenos Labiales",
+          text: "¡Los mejores rellenos labiales que jamás he tenido! Tatiana tiene un ojo artístico. Mis labios se ven más llenos pero completamente naturales. ¡Todos preguntan cuál es mi secreto!",
+          rating: 5,
+        },
+        {
+          name: "Olivia T.",
+          treatment: "Microblading",
+          text: "Ahora me despierro con cejas perfectas. Tatiana dedicó mucho tiempo para conseguir la forma exacta. ¡Un tratamiento que cambia la vida!",
+          rating: 5,
+        },
+        {
+          name: "Amelia K.",
+          treatment: "Peeling Químico",
+          text: "Mi piel estaba apagada y desigual, pero después de solo una sesión con Tatiana estaba resplandeciente. Explicó todo claramente y me sentí muy cuidada.",
+          rating: 5,
+        },
+      ],
     },
     footer: {
       allRightsReserved: "Todos los derechos reservados",

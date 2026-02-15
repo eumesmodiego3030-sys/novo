@@ -1,7 +1,9 @@
 import ScrollReveal from "./ScrollReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import portraitImg from "@/assets/portrait-tatiana.jpg";
 
-const AboutSection = () =>
+const AboutSection = () => {
+  const { t } = useLanguage();
 <section id="about" className="section-luxury">
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -23,27 +25,22 @@ const AboutSection = () =>
         {/* Text */}
         <ScrollReveal delay={0.2}>
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4 font-body font-extrabold">
-            Founder & Aesthetic Practitioner
+            {t.about.subheading}
           </p>
           <h2 className="section-heading text-foreground mb-2">
-            About <span className="italic text-primary font-medium">Tatiana</span>
+            {t.about.title} <span className="italic text-primary font-medium">{t.about.titleHighlight}</span>
           </h2>
           <div className="luxury-divider mx-0" />
 
           <div className="space-y-5 mt-8">
             <p className="leading-relaxed font-body font-semibold text-[#19010c]">
-              With over 25 years of experience in the beauty industry, Tatiana began her journey
-              in Brazil within a family of hairdressers. At 15, she completed her first professional
-              course and managed a salon for nearly a decade.
+              {t.about.bio1}
             </p>
             <p className="leading-relaxed font-body font-semibold text-[#140009]">
-              She graduated in Industrial Chemistry Technology and Quality Management.
-              In 2016, she moved to England, specialising in design and micropigmentation.
+              {t.about.bio2}
             </p>
             <p className="leading-relaxed font-body font-semibold text-[#0f0007]">
-              In 2020, she co-founded the first Brazilian salon in Birmingham and in 2023,
-              opened her own clinic. She holds a Level 7 postgraduate qualification in
-              advanced aesthetics and injectable procedures.
+              {t.about.bio3}
             </p>
           </div>
 
