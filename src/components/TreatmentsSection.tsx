@@ -6,7 +6,7 @@ import { useMediaQuery } from "@/hooks/use-mobile";
 import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
-import tanningImg from "@/assets/brozeamento.jpg";
+import tanningImg from "@/assets/brazilian-tanning.jpg";
 
 // Map treatment IDs to images
 const treatmentImages: Record<string, string> = {
