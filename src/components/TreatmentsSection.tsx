@@ -5,6 +5,7 @@ import { TouchCarousel } from "./TouchCarousel";
 import { useMediaQuery } from "@/hooks/use-mobile";
 import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
+import browsImg from "@/assets/brows-lashes-waxing.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
 import tanningImg from "@/assets/brazilian-tanning.jpg";
 
@@ -15,7 +16,7 @@ const treatmentImages: Record<string, string> = {
   "micropigmentation-pmu": fillersImg,
   "body-treatments": botoxImg,
   "laser-hair-removal": laserImg,
-  "brows-lashes-waxing": fillersImg,
+  "brows-lashes-waxing": browsImg,
   "brazilian-tanning": tanningImg,
 };
 
