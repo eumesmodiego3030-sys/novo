@@ -7,11 +7,12 @@ import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
 import browsImg from "@/assets/brows-lashes-waxing.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
+import facialInjectablesImg from "@/assets/facial-aesthetics-injectables.jpg";
 import tanningImg from "@/assets/brazilian-tanning.jpg";
 
 // Map treatment IDs to images
 const treatmentImages: Record<string, string> = {
-  "facial-aesthetics-injectables": botoxImg,
+  "facial-aesthetics-injectables": facialInjectablesImg,
   "skin-treatments": laserImg,
   "micropigmentation-pmu": fillersImg,
   "body-treatments": botoxImg,
