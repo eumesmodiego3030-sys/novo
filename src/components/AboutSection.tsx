@@ -35,13 +35,13 @@ const AboutSection = () => {
             <div className="luxury-divider mx-0" />
 
             <div className="space-y-5 mt-8">
-              <p className="leading-relaxed font-body font-semibold text-[#19010c]">
+              <p className="leading-relaxed font-body font-semibold text-foreground dark:text-white">
                 {t.about.bio1}
               </p>
-              <p className="leading-relaxed font-body font-semibold text-[#140009]">
+              <p className="leading-relaxed font-body font-semibold text-foreground dark:text-white">
                 {t.about.bio2}
               </p>
-              <p className="leading-relaxed font-body font-semibold text-[#0f0007]">
+              <p className="leading-relaxed font-body font-semibold text-foreground dark:text-white">
                 {t.about.bio3}
               </p>
             </div>
@@ -49,15 +49,15 @@ const AboutSection = () => {
             <div className="flex gap-8 mt-10">
               <div>
                 <span className="font-heading text-3xl text-primary font-extrabold">25+</span>
-                <p className="text-xs mt-1 font-body font-medium text-[#19010c]">Years Experience</p>
+                <p className="text-xs mt-1 font-body font-medium text-foreground dark:text-white">Years Experience</p>
               </div>
               <div>
                 <span className="font-heading text-3xl text-primary font-extrabold">Level 7</span>
-                <p className="text-xs mt-1 font-body font-medium text-[#140109]">Qualification</p>
+                <p className="text-xs mt-1 font-body font-medium text-foreground dark:text-white">Qualification</p>
               </div>
               <div>
                 <span className="font-heading text-3xl text-primary font-extrabold">100%</span>
-                <p className="text-xs mt-1 font-body font-medium text-[#0f0007]">Dedication</p>
+                <p className="text-xs mt-1 font-body font-medium text-foreground dark:text-white">Dedication</p>
               </div>
             </div>
           </ScrollReveal>

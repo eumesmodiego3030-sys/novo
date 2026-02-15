@@ -6,7 +6,7 @@ const ContactSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="section-luxury">
+    <section id="contact" className="section-luxury pt-32 sm:pt-48 md:pt-56">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">

@@ -26,9 +26,9 @@ const TreatmentsSection = () => {
 
   const carouselItems = treatments.map((treatment) => ({
     id: treatment.id,
-    content: (
+      content: (
       <motion.div
-        className="glass-card group cursor-pointer p-0 overflow-hidden h-full w-full"
+        className="glass-card group cursor-pointer p-0 overflow-hidden h-full w-full text-foreground dark:text-white"
         whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
@@ -48,14 +48,14 @@ const TreatmentsSection = () => {
         </div>
         <div className="p-6 sm:p-8">
           <motion.h3
-            className="font-heading text-xl sm:text-2xl font-medium text-foreground mb-3"
+            className="font-heading text-xl sm:text-2xl font-medium text-foreground dark:text-white mb-3"
             whileHover={{ color: "hsl(var(--primary))" }}
             transition={{ duration: 0.2 }}
           >
             {treatment.name}
           </motion.h3>
           <motion.p
-            className="text-sm text-muted-foreground leading-relaxed mb-4 font-body"
+            className="text-sm text-muted-foreground dark:text-white leading-relaxed mb-4 font-body"
             whileHover={{ color: "hsl(var(--foreground)/0.8)" }}
             transition={{ duration: 0.2 }}
           >
@@ -65,7 +65,7 @@ const TreatmentsSection = () => {
             {treatment.benefits.map((b: string, idx: number) => (
               <motion.li
                 key={b}
-                className="text-xs text-muted-foreground font-body flex items-center gap-2"
+                className="text-xs text-muted-foreground dark:text-white font-body flex items-center gap-2"
                 whileHover={{ x: 4, color: "hsl(var(--primary))" }}
                 transition={{ duration: 0.2, delay: idx * 0.05 }}
               >

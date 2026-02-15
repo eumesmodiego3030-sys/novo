@@ -32,46 +32,10 @@ const HeroSection = () => {
               {t.hero.subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.button
-                onClick={() => scrollTo("#booking")}
-                className="btn-primary-luxury glow-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                {t.hero.bookConsultation}
-              </motion.button>
-              <motion.a
-                href="https://wa.me/447492934010"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp glow-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                {t.hero.whatsappConsultation}
-              </motion.a>
-            </div>
+            {/* Buttons removed as requested (Agendar / Consulta WhatsApp) */}
           </motion.div>
 
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
-
-            <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-body font-extrabold">
-              {t.hero.scrollExplore}
-            </span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-8 bg-foreground/20" />
-
-          </motion.div>
+          {/* Scroll indicator removed as requested */}
         </div>
       </ParallaxSection>
     </section>);
