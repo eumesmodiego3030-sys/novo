@@ -2,6 +2,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSelector from "@/components/LanguageSelector";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Logo3D = lazy(() => import("@/components/Logo3D"));
 
@@ -71,6 +72,9 @@ const Navigation = () => {
             </li>
           )}
           <li>
+            <ThemeToggle />
+          </li>
+          <li>
             <LanguageSelector />
           </li>
         </ul>
@@ -119,7 +123,8 @@ const Navigation = () => {
                   </button>
                 </li>
             )}
-              <li>
+              <li className="flex gap-4">
+                <ThemeToggle />
                 <LanguageSelector />
               </li>
               <li>

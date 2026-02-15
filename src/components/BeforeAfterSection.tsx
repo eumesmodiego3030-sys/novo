@@ -88,7 +88,7 @@ const BeforeAfterSlider = ({ beforeLabel, afterLabel, treatment }: BeforeAfterSl
         <span className="absolute bottom-4 right-4 text-xs font-body font-semibold tracking-widest uppercase text-foreground/60 bg-background/70 backdrop-blur-sm px-3 py-1 rounded-full">
           {afterLabel}
         </span>
-      </div>
+      </motion.div>
       <p className="text-sm text-muted-foreground font-body mt-3">{treatment}</p>
     </div>
   );

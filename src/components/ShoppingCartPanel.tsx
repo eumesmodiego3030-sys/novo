@@ -119,7 +119,7 @@ const ShoppingCartPanel = () => {
                               >
                                 −
                               </motion.button>
-                              <motion.span 
+                              <motion.span
                                 className="w-8 text-center font-medium"
                                 animate={{ scale: 1 }}
                                 key={item.quantity}
@@ -143,7 +143,7 @@ const ShoppingCartPanel = () => {
                               £{(item.priceNumeric * item.quantity).toFixed(2)}
                             </p>
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
 

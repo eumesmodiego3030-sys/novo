@@ -261,7 +261,7 @@ const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: 
                             </motion.button>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     );
                   })}
                   {category.note &&
@@ -304,9 +304,6 @@ const PricingSection = () => {
 
         <ScrollReveal>
           <div className="text-center mt-12">
-            
-
-
           </div>
         </ScrollReveal>
       </div>

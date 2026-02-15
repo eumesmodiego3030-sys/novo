@@ -5,11 +5,17 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { CartProvider } from "@/i18n/CartContext";
+import { PWAInstallPrompt, OfflineIndicator } from "@/components/PWAComponents";
+import { initSentry } from "@/services/sentry";
+import { ChatBot } from "@/components/ChatBot/ChatBot";
 import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
+
+// Initializar Sentry para error tracking
+initSentry();
 
 const queryClient = new QueryClient();
 
@@ -20,6 +26,9 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <PWAInstallPrompt />
+          <OfflineIndicator />
+          <ChatBot />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
