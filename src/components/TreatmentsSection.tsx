@@ -7,61 +7,22 @@ import botoxImg from "@/assets/treatment-botox.jpg";
 import fillersImg from "@/assets/treatment-fillers.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
 
-const treatments = [
-  {
-    id: "facial-aesthetics-injectables",
-    name: "Facial Aesthetics & Injectables",
-    image: botoxImg,
-    description: "Anti-wrinkle injections, Profhilo, mesotherapy, lip fillers and skin boosters for a refreshed, youthful appearance.",
-    benefits: ["Anti-wrinkle injections", "Dermal fillers", "Profhilo & Lumi"],
-  },
-  {
-    id: "skin-treatments",
-    name: "Skin Treatments",
-    image: laserImg,
-    description: "Chemical peels, microneedling and deep cleansing facials for radiant, clear and rejuvenated skin.",
-    benefits: ["Chemical peels", "Microneedling", "Deep cleansing facials"],
-  },
-  {
-    id: "micropigmentation-pmu",
-    name: "Micropigmentation & PMU",
-    image: fillersImg,
-    description: "Expert microblading, lip blush, eyeliner and brow techniques for beautifully defined, long-lasting results.",
-    benefits: ["Microblading", "Lip blush", "Eyeliner PMU"],
-  },
-  {
-    id: "body-treatments",
-    name: "Body Treatments",
-    image: botoxImg,
-    description: "Body contouring, lymphatic drainage massage and cellulite treatments for a sculpted, smooth silhouette.",
-    benefits: ["Body contouring", "Lymphatic drainage", "Cellulite treatment"],
-  },
-  {
-    id: "laser-hair-removal",
-    name: "Laser Hair Removal",
-    image: laserImg,
-    description: "Advanced laser technology for permanent hair reduction on all skin types, with comfortable and effective sessions.",
-    benefits: ["Full body laser", "All skin types", "Permanent reduction"],
-  },
-  {
-    id: "brows-lashes-waxing",
-    name: "Brows, Lashes & Waxing",
-    image: fillersImg,
-    description: "Brow shaping, lash lifts, tinting and full-body waxing for a polished, effortless look.",
-    benefits: ["Lash lift & tint", "Brow lamination", "Full body waxing"],
-  },
-  {
-    id: "brazilian-tanning",
-    name: "Brazilian Tanning",
-    image: botoxImg,
-    description: "Flawless, natural-looking Brazilian spray tan for a sun-kissed glow all year round.",
-    benefits: ["Spray tan", "Natural finish", "Long-lasting glow"],
-  },
-];
+// Map treatment IDs to images
+const treatmentImages: Record<string, string> = {
+  "facial-aesthetics-injectables": botoxImg,
+  "skin-treatments": laserImg,
+  "micropigmentation-pmu": fillersImg,
+  "body-treatments": botoxImg,
+  "laser-hair-removal": laserImg,
+  "brows-lashes-waxing": fillersImg,
+  "brazilian-tanning": botoxImg,
+};
 
 const TreatmentsSection = () => {
   const { t } = useLanguage();
   const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const treatments = t.treatments.data;
 
   const carouselItems = treatments.map((treatment) => ({
     id: treatment.id,
@@ -73,7 +34,7 @@ const TreatmentsSection = () => {
       >
         <div className="relative h-48 sm:h-56 overflow-hidden bg-white flex items-center justify-center">
           <motion.img
-            src={treatment.image}
+            src={treatmentImages[treatment.id]}
             alt={treatment.name}
             className="mx-auto h-full w-auto object-contain"
             whileHover={{ scale: 1.1, rotate: 2 }}
@@ -101,7 +62,7 @@ const TreatmentsSection = () => {
             {treatment.description}
           </motion.p>
           <ul className="space-y-2 mb-6">
-            {treatment.benefits.map((b, idx) => (
+            {treatment.benefits.map((b: string, idx: number) => (
               <motion.li
                 key={b}
                 className="text-xs text-muted-foreground font-body flex items-center gap-2"

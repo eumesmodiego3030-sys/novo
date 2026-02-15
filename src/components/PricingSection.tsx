@@ -18,129 +18,6 @@ interface PriceCategory {
   note?: string;
 }
 
-const categories: PriceCategory[] = [
-{
-  title: "Facial Aesthetics & Injectables",
-  emoji: "💉",
-  treatmentId: "facial-aesthetics-injectables",
-  items: [
-  { name: "Anti-Wrinkle Injection – 1 Area", price: "£200" },
-  { name: "Anti-Wrinkle Injection – 2 Areas", price: "£240" },
-  { name: "Anti-Wrinkle Injection – 3 Areas", price: "£280" },
-  { name: "Profhilo (1 session)", price: "£300" },
-  { name: "Profhilo Face & Neck", price: "£560" },
-  { name: "Mesotherapy Face & Body", price: "£120" },
-  { name: "Lumi Eye", price: "£200" },
-  { name: "Lumi Pro", price: "£120" },
-  { name: "Lip Filler 1ml", price: "£180" },
-  { name: "Filler Dissolver", price: "£100" }]
-
-},
-{
-  title: "Skin Treatments",
-  emoji: "✨",
-  treatmentId: "skin-treatments",
-  items: [
-  { name: "Chemical Peel (single)", price: "£120" },
-  { name: "Chemical Peel (3 sessions)", price: "£310" },
-  { name: "Microneedling (single)", price: "£90" },
-  { name: "Microneedling (3 sessions)", price: "£235" },
-  { name: "Microneedling Face & Neck", price: "£140" },
-  { name: "Deep Cleansing Facial", price: "£50" },
-  { name: "Clear Skin Acne Facial", price: "£60" },
-  { name: "Deep Back Cleanse", price: "£70" }]
-
-},
-{
-  title: "Body Treatments",
-  emoji: "🧴",
-  treatmentId: "body-treatments",
-  items: [
-  { name: "Scalp Microneedling for Hair Loss", price: "£80" },
-  { name: "Stretch Marks Microneedling (session)", price: "£80" },
-  { name: "Stretch Marks Microneedling (5 sessions)", price: "£350" },
-  { name: "Vitamin B12", price: "£60" },
-  { name: "Vitamin D", price: "£80" },
-  { name: "Vitamin C", price: "£40" },
-  { name: "Biotin", price: "£70" },
-  { name: "Fat Dissolver & PDRN – Small Area", price: "£300" },
-  { name: "Fat Dissolver & PDRN – Large Area", price: "£560" }]
-
-},
-{
-  title: "Laser Hair Removal (Diode)",
-  emoji: "⚡",
-  treatmentId: "laser-hair-removal",
-  items: [
-  { name: "Hollywood / Brazilian", price: "£70" },
-  { name: "Full Leg", price: "£80" },
-  { name: "Half Leg", price: "£45" },
-  { name: "Underarms", price: "£35" },
-  { name: "Full Arm", price: "£60" },
-  { name: "Half Arms", price: "£60" },
-  { name: "Bikini Line", price: "£50" },
-  { name: "Peri Anal", price: "£35" },
-  { name: "Full Face", price: "£55" },
-  { name: "Upper Lip", price: "£35" }],
-
-  note: "Packages available with 10–15% discount"
-},
-{
-  title: "Waxing",
-  emoji: "🌸",
-  items: [
-  { name: "Hollywood / Brazilian", price: "£30" },
-  { name: "Bikini Line", price: "£20" },
-  { name: "Full Leg", price: "£25" },
-  { name: "Half Leg", price: "£15" },
-  { name: "Underarms", price: "£10" },
-  { name: "Full Arms", price: "£25" },
-  { name: "Upper Lip", price: "£5" },
-  { name: "Face", price: "£20" },
-  { name: "Chin / Nose", price: "£5" }]
-
-},
-{
-  title: "Brows & Lashes",
-  emoji: "👁️",
-  treatmentId: "brows-lashes-waxing",
-  items: [
-  { name: "Eyebrow Shaping", price: "£15" },
-  { name: "Henna Shaping", price: "£25" },
-  { name: "Brow Tinting", price: "£10" },
-  { name: "Brow Lamination", price: "£35" },
-  { name: "Lash Lift & Curl", price: "£40" },
-  { name: "Lash Tint", price: "£10" },
-  { name: "Lash Removal", price: "£10" }]
-
-},
-{
-  title: "Micropigmentation (PMU)",
-  emoji: "🖊️",
-  treatmentId: "micropigmentation-pmu",
-  items: [
-  { name: "Microblading / Nanoblading", price: "£220" },
-  { name: "Eyebrows Shadow", price: "£220" },
-  { name: "Eyeliner", price: "£250" },
-  { name: "Lip Blush PMU", price: "£240" },
-  { name: "Top-up (12–18 months)", price: "£180" }]
-
-},
-{
-  title: "Brazilian Tanning",
-  emoji: "☀️",
-  treatmentId: "brazilian-tanning",
-  items: [
-  { name: "Brazilian Sunbed", price: "£50" },
-  { name: "Spraytan Organic", price: "£45" },
-  { name: "Banho de Lua", price: "£35" },
-  { name: "Pack 4 sessions + Banho de Lua", price: "£200" },
-  { name: "Sunbed + Spraytan", price: "£90" },
-  { name: "Banho de Lua + 2 Sunbed", price: "£110" }]
-
-}];
-
-
 const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: number;}) => {
   const { addItem, removeItem, items } = useCart();
   const [open, setOpen] = useState(index === 0);
@@ -279,6 +156,7 @@ const CategoryAccordion = ({ category, index }: {category: PriceCategory;index: 
 
 const PricingSection = () => {
   const { t } = useLanguage();
+  const categories = t.pricing.prices;
 
   return (
     <section id="prices" className="section-luxury">
