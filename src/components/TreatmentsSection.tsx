@@ -8,12 +8,13 @@ import fillersImg from "@/assets/treatment-fillers.jpg";
 import browsImg from "@/assets/brows-lashes-waxing.jpg";
 import laserImg from "@/assets/treatment-laser.jpg";
 import facialInjectablesImg from "@/assets/facial-aesthetics-injectables.jpg";
+import skinImg from "@/assets/skin-treatments.jpg";
 import tanningImg from "@/assets/brazilian-tanning.jpg";
 
 // Map treatment IDs to images
 const treatmentImages: Record<string, string> = {
   "facial-aesthetics-injectables": facialInjectablesImg,
-  "skin-treatments": laserImg,
+  "skin-treatments": skinImg,
   "micropigmentation-pmu": fillersImg,
   "body-treatments": botoxImg,
   "laser-hair-removal": laserImg,
